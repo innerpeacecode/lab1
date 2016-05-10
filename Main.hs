@@ -34,7 +34,7 @@ runConn (sock, _) chan msgNum = do
     hdl <- socketToHandle sock ReadWriteMode
     hSetBuffering hdl NoBuffering
  
-    hPutStrLn hdl "Hi, what's your name?"
+    hPutStrLn hdl "Enter a user name:"
     name <- liftM init (hGetLine hdl)
     broadcast ("--> " ++ name ++ " entered chat.")
     hPutStrLn hdl ("Welcome, " ++ name ++ "!")
